@@ -15,13 +15,20 @@ public class Bingo {
      * @throws Exception
      */
     public Bingo(int qtd, int qtdLinhas, int qtdColunas) throws Exception {
-        throw new Exception("Método não implementado");
+
+      for(int i = 0; i<qtd ; i++){
+        Cartela jogo = new Cartela(qtdColunas,qtdLinhas,)
+      }
+
+      
+       
     }
 
     public Lista<Cartela> getCartelas(SituacaoCartela situacaoCartela) throws Exception {
         throw new Exception("Método não implementado");
 
     }
+  
     public Lista<Cartela> getCartelasVencedoras(boolean verificarPorLinha) throws Exception {
         throw new Exception("Método não implementado");
     }
@@ -51,9 +58,11 @@ public class Bingo {
     public void LimparNumerosSorteados() throws Exception {
         throw new Exception("Método não implementado");
     }
+  
     public void RemoverCartelaDoBingo(Cartela cartela) throws Exception {
         throw new Exception("Método não implementado");
     }
+  
     public int obterQuantidadeDeCartelas(SituacaoCartela situacaoCartela) throws Exception {
         throw new Exception("Método não implementado");
     }

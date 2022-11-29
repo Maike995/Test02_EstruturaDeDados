@@ -16,6 +16,9 @@ public class Cartela implements ICartelaJogo{
     protected Integer identificador = 0;
     protected Date dataGeracao;
 
+// n faço ideia do pq desse idetificador
+  protected ListaSequencial identifica = new ListaSequencial(identificador);
+
 
     
     Random gerador = new Random();
@@ -23,14 +26,18 @@ public class Cartela implements ICartelaJogo{
     public Cartela( int tamanhoMatriz, int identificador ) throws Exception {
         this(tamanhoMatriz, tamanhoMatriz, identificador);
     }
+   /**
+     * Cria a cartela com os números conforme a matriz N x M.
+     * Um número identificador (geralmente um sequencial) deverá ser informado.
+     
+     */
 
     public Cartela( int N, int M, int identificador ) throws Exception {
-      this.identificador = identificador;
-      int auxiliar = N*M,
-      for(int i = 0, i<auxiliar , i++){
-         NumeroCartela num = new NumeroCartela(criaNumero());
-         dados.incluir(num);
-      }
+
+
+
+
+      
     }
 
     public int[] criaNumero(){

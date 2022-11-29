@@ -76,6 +76,8 @@ public abstract class Lista<T extends Comparable>  {
      */
     public abstract boolean contem(T elemento) throws Exception;
 
+  
+
     @Override
     public int compareTo(Lista<T> item) {
         if ( item instanceof Lista ) {
