@@ -31,8 +31,8 @@ public class ListaSequencial<T extends Comparable<T>> extends Lista<T>{
 
     @Override
     public int getPosElemento(T elemento) throws Exception {
-      for(int i = 0; i<=getTamanho();i++){
-         if(elemento==lista[i]){
+      for(int i = 0; i<getTamanho()-1;i++){
+         if(elemento.equals(lista[i])){
             return i;
          }
       }
@@ -40,72 +40,70 @@ public class ListaSequencial<T extends Comparable<T>> extends Lista<T>{
 
     @Override
     public void incluir(T elemento) throws Exception {
-      if(getTamanho<0){
-        lista[0] = elemento;;
+      if(getTamanho == qtdMax){
+        throw new Exception("Lista Cheia");
       }
-      if(getTamanho>=0){
-        lista[getTamanho()+1] = elemento; 
-      }
+      lista[getTamanho()] = elemento; 
+      this.finalLista++;
     }
 
     @Override
     public void incluirInicio(T elemento) throws Exception {
-      if(getTamanho()<0){
-        lista[0] = elemento;;
+      if(getTamanho == qtdMax){
+        throw new Exception("Lista Cheia");
       }
-      int aux = 0;
-      if(getTamanho()>=0){
-        for(int i = 0; i<=getTamanho();i++){
-          aux = lista[i];
-          lista[i] = elemento;
-          elemento = aux;
-        }
+      for(int i = finalLista+1; i>0 ; i--){
+        lista[i] = lista[i-1];
       }
+      lista[0]=elemento;
+      this.finalLista++;
     }
 
     @Override
     public void incluir(T elemento, int posicao) throws Exception {
-      if(posicao < 0 || posicao >= getTamanho()){
-            throw new Exception("Posicao invalida");
-        }
-      if(getTamanho()<0){
-        lista[0] = elemento;;
+      if(getTamanho == qtdMax){
+        throw new Exception("Lista Cheia");
       }
-      int aux = 0;
-      if(getTamanho()>=0){
-        for(int i = posicao; i<=getTamanho();i++){
-          aux = lista[i];
-          lista[i] = elemento;
-          elemento = aux;
-        }
+      if(posicao < 0 || posicao > getTamanho()){
+        throw new Exception("Posicao invalida");
       }
+      if(posicao == getTamanho()){
+        lista[getTamanho()] = elemento; 
+        this.finalLista++;
+        return;
+      }
+      for(int i = finalLista+1; i<posicao;i--){
+        lista[i] = lista[i-1];
+      }
+      lista[posicao]=elemento;
+      this.finalLista++;
     }
 
     @Override
     public void remover(int posicao) throws Exception {
-      if(posicao < 0 || posicao >= getTamanho()){
+      if(posicao < 0 || posicao > getTamanho()){
             throw new Exception("Posicao invalida");
       }
       if(getTamanho() == 0){
         limpar();
+        return;
       }
-      if(getTamanho()>=0){
-        for(int i = posicao; i<=getTamanho();i++){
-          lista[i] = lista[i+1];
-          lista[i+1] = 0;
-        }
+      for(int i = posicao; i<finalLista;i++){
+        lista[i] = lista[i+1];
       }
+      lista[finalLista]=null;
+      this.finalLista--;
     }
   
     @Override
     public int getTamanho() {
-        return finalLista;
+        return finalLista+1;
     }
 
     @Override
     public boolean contem(T elemento) throws Exception {
-      for(int i = 0; i<=getTamanho();i++){
-         if(elemento==lista[i]){
+      for(int i = 0; i<getTamanho();i++){
+         if(elemento.equals(lista[i])){
             return true;
          }
       }

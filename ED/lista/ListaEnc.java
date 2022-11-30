@@ -39,7 +39,6 @@ public class ListaEnc<T extends Comparable<T>> extends Lista<T> {
         return noRetorno;
     }
 
-
     public int getPosElemento(T elemento) throws Exception {
        int posicao = 0;
        No<T> auxiliar = referenciaEntrada;
@@ -121,7 +120,6 @@ public class ListaEnc<T extends Comparable<T>> extends Lista<T> {
     public void limpar() {
         this.referenciaEntrada = null;
     }
-
 
     @Override
     public boolean contem(T elemento) throws Exception {

@@ -97,7 +97,6 @@ private boolean tipoOrdenacao;
         throw new Exception("O elemento é maior que o anterior");
     }
 
-
     @Override
     public boolean contem(T elemento) throws Exception {
         No<T> auxiliar = referenciaEntrada;
@@ -135,7 +134,6 @@ private boolean tipoOrdenacao;
         referenciaEntrada = anterior;
     }
 
-  
     public void incluirOrdenado(T elemento) throws Exception {
         No<T> novoNo = new No(elemento);
 

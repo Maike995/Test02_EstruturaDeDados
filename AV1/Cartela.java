@@ -17,7 +17,7 @@ public class Cartela implements ICartelaJogo{
     protected Date dataGeracao;
 
 // n faço ideia do pq desse idetificador
-  protected ListaSequencial identifica = new ListaSequencial(identificador);
+  protected static int identi = 0;
 
 
     
@@ -34,6 +34,15 @@ public class Cartela implements ICartelaJogo{
 
     public Cartela( int N, int M, int identificador ) throws Exception {
 
+
+        aux = n*m;
+        
+        ListaEncOrdenada<NumeroCartela> linha = new ListaEncOrdenada<>();
+        for (int i = 0; i < aux; i++) {
+          linha.incluirOrdenado(criaNumero());
+        }
+        this.dados.get(getTamanho()).incluir(linha);
+        }
 
 
 
